@@ -79,6 +79,63 @@ import { Car, cars as cars_list } from './cars';
   // it should require id, type, model, and cost
 
   // Start the Server
+
+  app.get( "/cars/:make", 
+    ( req: Request, res: Response ) => {
+      let { make } = req.params;
+
+      if ( !make ) {
+        return res.status(400)
+                  .send(`car make is required`);
+      }
+
+      return res.status(200)
+                .send(`Welcome to car market, ${make}!`);
+
+               // foreach(){
+  } );
+
+  // Get a greeting to a specific person to demonstrate req.query
+  // > try it {{host}}/persons?name=the_name
+  app.get( "/persons/", ( req: Request, res: Response ) => {
+    let { name } = req.query;
+
+    if ( !name ) {
+      return res.status(400)
+                .send(`name is required`);
+    }
+
+    return res.status(200)
+              .send(`Welcome to the Cloud, ${name}!`);
+  } );
+
+  // Post a greeting to a specific person
+  // to demonstrate req.body
+  // > try it by posting {"name": "the_name" } as 
+  // an application/json body to {{host}}/persons
+  app.post( "/persons", 
+    async ( req: Request, res: Response ) => {
+
+      const { name } = req.body;
+
+      if ( !name ) {
+        return res.status(400)
+                  .send(`name is required`);
+      }
+
+      return res.status(200)
+                .send(`Welcome to the Cloud, ${name}!`);
+  } );
+
+
+
+
+
+
+
+
+
+
   app.listen( port, () => {
       console.log( `server running http://localhost:${ port }` );
       console.log( `press CTRL+C to stop server` );
