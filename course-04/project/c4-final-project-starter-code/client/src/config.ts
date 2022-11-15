@@ -1,6 +1,3 @@
-// TODO: Once your application is deployed, copy an API id here so that the frontend could interact with it
-//https://z3hj0pbl16.execute-api.us-east-1.amazonaws.com/dev/todos
-//https://hfeinhwzw2.execute-api.us-east-1.amazonaws.com/dev/todos
 const apiId = 'hfeinhwzw2'
 export const apiEndpoint = `https://${apiId}.execute-api.us-east-1.amazonaws.com/dev`
 
